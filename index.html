@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Memilih Elemen Berdasarkan ID</title>
+    <style type="text/css">
+    div h3{
+        text-align: center;
+    }
+    form{
+        display: flex;
+        justify-content: center;
+    }
+    table{
+        width: 80%;
+        height: 80%;
+        margin: auto;
+        position: relative;
+    }
+    </style>
+</head>
+<body >
+    <div id="tutorial">
+    <h3>BIODATA</h3>
+    <h3>SISWA KELAS XII MM</h3>
+    <h3>SMK NEGRI 2 PURWOKERTO</h3>
+    <h3>TAHUN AJARAN 2022/2023</h3></div>
+
+    <form name="biodata" method="POST" >
+        <fieldset>
+        <p>
+            <label>Nis:</label>
+            <input type="number" name="nis" id="val_nis" placeholder="Masukan Nis Anda....." />
+        </p>
+        <p>
+            <label>Nama:</label>
+            <input type="Text" name="nama" id="val_nama" placeholder="Masukan Nama Anda....." />
+        </p>
+        <p>
+            <label>Tempat Lahir:</label>
+            <input type="text" name="tempat" id="val_tempat" placeholder="Masukan Tempat Lahir Anda....."/>
+        </p>
+        <p>
+            <label>Tanggal Lahir:</label>
+            <input type="date" name="tanggal" id="val_tanggal"/>
+        </p>
+        <p>
+            <label>Agama:</label>
+            <select name="agama">
+                <option value="islam" id="val_agama">Islam</option>
+                <option value="kristen" id="val_agama">Kristen</option>
+                <option value="hindu" id="val_agama">Hindu</option>
+                <option value="budha" id="val_agama">Budha</option>
+            </select>
+        </p>
+        <p>
+        <label>Jenis kelamin:</label>
+            <label><input type="radio" name="jenis_kelamin" id="val_jenis kelamin" value="laki-laki" /> Laki-laki</label>
+            <label><input type="radio" name="jenis_kelamin" id="val_jenis kelamin" value="perempuan" /> Perempuan</label>
+        </p>
+        <p>
+            <label>Alamat:</label>
+            <textarea name="alamat" id="val_alamat"></textarea>
+        </p>
+        <p>
+            <label>Uang Saku Per Hari:</label>
+            <input type="number" name="uang" id="ipt_uang" placeholder="" />
+        </p>
+        <p>
+            <label>Total Uang Saku:</label>
+            <input type="tekt" name="uangku" id="opt_jadi" placeholder="" />
+        </p>
+        <p >
+            <input type="button" onclick="kiriminput()" value="Simpan" />
+            <input type="reset" onclick="menghapus()" value="Batal" />
+        </p>
+        </fieldset>
+    </form>
+    <br>
+    <table  border="1" id="tabelinput">
+        <tr>
+            <td>NIS</td>
+            <td>NAMA</td>
+            <td>Tempat Lahir</td>
+            <td>Tanggal Lahir</td>
+            <td>Agama</td>
+            <td>Jenis Kelamin</td>
+            <td>Alamat</td>
+            <td>Uang Saku Harian</td>
+            <td>Total</td>
+        </tr>
+    </table>
+    <script>
+        var uang;
+        var jadi;
+
+        function kiriminput(){
+
+            uang = parseFloat(document.getElementById("ipt_uang").value);
+            jadi = 25 * (uang);
+            document.getElementById('opt_jadi').value = jadi;
+
+			var u=document.forms['biodata']['nis'].value;
+			var x=document.forms['biodata']['nama'].value;
+			var y=document.forms['biodata']['tempat'].value;
+			var z=document.forms['biodata']['tanggal'].value;
+            var a=document.forms['biodata']['agama'].value;
+            var b=document.forms['biodata']['jenis_kelamin'].value;
+            var c=document.forms['biodata']['alamat'].value;
+            var d=document.forms['biodata']['uang'].value;
+            var e=document.forms['biodata']['uangku'].value;
+			
+			if(u==null || u=="")
+			{
+				document.getElementById('val_nis').innerHTML="Isi Kolom NIS";
+				if(x==null || x=="")
+				{
+					document.getElementById('val_nama').innerHTML="Isi Kolom NAMA";
+				}else{
+					document.getElementById('val_nama').innerHTML="Sudah Benar";
+				}
+			}else{
+				document.getElementById('val_nis').innerHTML="Sudah Benar";
+				if(x==null || x=="")
+				{
+					document.getElementById('val_nama').innerHTML="Sudah NAMA";
+				}else{
+					document.getElementById('val_nis').innerHTML="Sudah Benar";
+
+                    var tabel = document.getElementById("tabelinput");
+					var row=tabel.insertRow(1);
+					var cell1 = row.insertCell(0);
+					var cell2 = row.insertCell(1);
+					var cell3 = row.insertCell(2);
+					var cell4 = row.insertCell(3);
+                    var cell5 = row.insertCell(4);
+                    var cell6 = row.insertCell(5);
+                    var cell7 = row.insertCell(6);
+                    var cell8 = row.insertCell(7);
+                    var cell9 = row.insertCell(8);
+					
+					cell1.innerHTML=u;
+					cell2.innerHTML=x;
+					cell3.innerHTML=y;
+					cell4.innerHTML=z;
+                    cell5.innerHTML=a;
+                    cell6.innerHTML=b;
+                    cell7.innerHTML=c;
+                    cell8.innerHTML=d;
+                    cell9.innerHTML=e;
+				}
+			}
+		}
+    </script>
+</body>
+</html>
